@@ -10,6 +10,8 @@ import com.rabbitmq.client.Channel;
 
 public class Publisher {
 
+	private static final String QUEUE = "my-queue";
+
 	public static void main(String[] args) throws KeyManagementException, NoSuchAlgorithmException, URISyntaxException, IOException, TimeoutException, InterruptedException {
 		
 		ChannelFactory channelFactory = new ChannelFactory();
@@ -18,14 +20,17 @@ public class Publisher {
 		
 		int count = 0;
 		
-		while(count < 5000) {
+		while(count < 50) {
 			String message = "Message numer " + count;
-			channel.basicPublish("", "my-queue", null, message.getBytes());
+			channel.basicPublish("", QUEUE, null, message.getBytes());
 			count++;
 			System.out.println("Published message: " + message);
 			
-			Thread.sleep(5000);
+			Thread.sleep(500);
 		}
+
+		channel.close();
+		channel.getConnection().close();
 	}
 	
 }

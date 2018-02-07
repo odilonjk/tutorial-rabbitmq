@@ -1,6 +1,9 @@
 Tutorial: [RabbitMQ (Introduction to...)](https://youtu.be/GoIkHMCXFCU)
 
-Tutorial de como utilizar [RabbitMQ](http://www.rabbitmq.com/).
+Código baseado no tutorial do vídeo acima.
+Fiz algumas alterações para atualização do conteúdo.
+
+
 
 * Java: **1.9.0**
-* RabbitMQ client: **3.3.4**
+* RabbitMQ client: **5.1.2**
